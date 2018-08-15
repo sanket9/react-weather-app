@@ -56,3 +56,17 @@
     font-size: 34px;
     text-transform: uppercase;
 }
+.loader{
+    width: 22%;
+    margin: 0 auto;
+    display: block;
+}
+
+@media only screen and (min-width:990px){
+    .temp-in{
+        font-size: 25px !important;
+        position: absolute;
+        left: 64%;
+        top: 49%;
+    }
+}
