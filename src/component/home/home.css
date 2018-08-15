@@ -8,3 +8,51 @@
 .margin-left{
     margin-left: 15px;
 }
+.wrapper{
+    /* padding: 10px; */
+    width: 80%;
+    height: 85vh;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 4px 4px 14px 0px #888888;
+}
+.card{
+    margin-top: 20px;
+    background-image: url('../../assets/bg.jpg') !important;
+    height: 85vh;
+
+    /* Center and scale the image nicely */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.center-align{
+    margin: 0 auto;
+    display: block;
+}
+.left-img{
+   
+    padding-left: 10px;
+}
+.temp{
+    font-size: 50px !important;
+    color:#365663 !important;
+}
+.temp-in{
+    font-size: 25px !important;
+    position: absolute;
+    left: 71%;
+    top: 49%;
+}
+.img-weather{
+    margin-top: -27px !important;
+}
+.weather-dec{
+    font-size: 40px;
+    font-weight: 200;
+    padding-left: 21px;
+}
+.country-name{
+    font-size: 34px;
+    text-transform: uppercase;
+}

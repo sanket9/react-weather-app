@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText, Row } from 'reactstrap';
+import React, { Component } from 'react';
+import { Col, Button, Form, FormGroup, Label, Input, Row, Card } from 'reactstrap';
 import './home.css';
 import ScriptTag from 'react-script-tag';
 
@@ -58,23 +58,32 @@ class Home extends Component {
       return (
         <div className="container">
             <Headers/>
-            <Form className="margin-left" onSubmit={this.getWeather}>
+            <Card className="wrapper">
                 <Row>
-                    <FormGroup className="col-md-8 margin-top">
-                        <Input type="text" name="location" id="location_search" 
-                        onChange={this.changeValue} 
-                        value={this.state.value}
-                        placeholder="Search With your Location" />
-                    </FormGroup>
+                    <Col md="6" className="center-align"> 
+                        <Form style={{ padding: 10 }} onSubmit={this.getWeather}>
+                            <FormGroup className="margin-top">
+                                <Input type="text" name="location" id="location_search" 
+                                onChange={this.changeValue} 
+                                value={this.state.value}
+                                placeholder="Search With your Location" />
+                            </FormGroup>
+                            <Button onClick={this.getWeather}>Get Weather</Button>
+                        </Form> 
+                        {this.state.temp && this.state.weather && <p className="text-center">
+                            <img className="img-weather" src={`http://openweathermap.org/img/w/${this.state.weather_icon}.png`}/>
+                            <span className="temp">{this.state.temp}° <small className="temp-in">C </small></span>
+                        </p>}
+                        {this.state.name && this.state.country &&<p className="text-center">
+                            <span className="country-name">{this.state.name}, {this.state.country}</span>
+                        </p>}
+                        
+                    </Col>            
+                
                 </Row>
-                <Button onClick={this.getWeather}>Get Weather</Button>
-            </Form>
-            {this.state.loading == true ? <img src="https://camo.githubusercontent.com/a1a81b0529517027d364ee8432cf9a8bd309542a/687474703a2f2f692e696d6775722e636f6d2f56446449444f522e676966" />: ''}
-            <Row>
-                <Col xs="6">    
-                    {this.state.name && this.state.country && <p>location:{this.state.name}, {this.state.country} </p>}
-                </Col>
-            </Row>        
+            
+            </Card>
+                   
             <ScriptTag type="text/javascript">
                 var input = document.getElementById('location_search');
                 var autocomplete = new google.maps.places.Autocomplete(input);
